@@ -1,3 +1,6 @@
-python-telegram-bot==20.8
-google-generativeai
+fastapi
 python-dotenv
+google-generativeai
+python-telegram-bot
+httpx
+uvicorn
