@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: eai-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: TOKEN
+        sync: false
+      - key: GEMINI_KEY
+        sync: false
