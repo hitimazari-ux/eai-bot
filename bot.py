@@ -3,8 +3,8 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 import logging
 
-TOKEN = '8588604360:AAG4kbjBJA10ofKrNQEKhAAy5G4FDPK8ErQ' 
-GEMINI_KEY = 'AIzaSyDzi6Wx4orZsn12fNbuoYS4kVPgMZ1lYQY'     
+TOKEN = os.getenv('TOKEN')
+GEMINI_KEY = os.getenv('GEMINI_KEY')
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -30,7 +30,7 @@ async def get_chat_session(chat_id):
         if model:
             chat_sessions[chat_id] = model.start_chat()
         else:
-            return None
+            return None 
     return chat_sessions[chat_id]
 
 async def ask_eai(text: str, chat_id: int) -> str:
